@@ -6,13 +6,13 @@ import pytz
 
 app = Flask(__name__, template_folder='template', static_folder='static')
 CORS(app)
-const_password = 'subham@724'
+const_password = 'password'
 my_tz = 'Asia/Kolkata'
 
 con = mysql.connector.connect(
   host="subham59036.mysql.pythonanywhere-services.com",
   user="subham59036",
-  password="subham@724",
+  password="password",
   database="subham59036$freelance"
 )
 cur = con.cursor()
