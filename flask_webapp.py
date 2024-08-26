@@ -334,3 +334,6 @@ def order_page(order_id):
     bill_id = datetime.now(loc_tz).strftime('%Y%m%d%H%M%S')
     bill_date = datetime.now(loc_tz).strftime('%d.%m.%Y')
     return render_template('order.html', order_id=order_id, order_name=order_name, reciever_name=reciever_name, reciever_address=reciever_address, reciever_email=reciever_email, reciever_mobile=reciever_mobile, order_place=order_place, order_delivery=order_delivery, order_price=order_price, payment_status=payment_status, payment_process=payment_process, order_status=order_status, benefits=benefits, bill_id=bill_id, bill_date=bill_date)
+
+if __name__ == '__main__':
+    app.run()
