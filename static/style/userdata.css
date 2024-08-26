@@ -1,0 +1,136 @@
+*{
+    font-family: "Poppins", sans-serif;
+    outline: none;
+    font-size: 1.5vw;
+    box-sizing: border-box;
+    resize: none;
+}
+body{
+    padding: 1vw;
+    display: flex;
+    align-items: center;
+    flex-flow: column;
+    background: #191826;
+    gap: 1vw;
+    margin: 0;
+    a{
+        text-decoration: none;
+    }
+}
+#tab{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    flex-flow: row;
+    border: 0.1vw solid #ffffff;
+    padding: 0.5vw;
+    z-index: 10;
+    .tab{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0 1vw;
+        font-weight: 600;
+        color: #ffffff;
+        cursor: pointer;
+    }
+    .tab.now{
+        background: #ffffff;
+        color: #000000;
+    }
+}
+.container{
+    display: none;
+}
+.container.active{
+    display: flex;
+    flex-flow: column;
+    gap: 1vw;
+    z-index: 10;
+    align-items: center;
+    width: 100%;
+    .heading{
+        font-size: 2vw;
+        font-weight: 900;
+        color: #ffffff;
+        margin-bottom: -1vw;
+    }
+    input, textarea, select{
+        padding: 0 0.5vw;
+        border: 0.1vw solid #737189;
+        width: 80vw;
+        background: transparent;
+        color: #ffffff;
+        align-self: flex-end;
+        &:focus{
+            border-color: #ffff00;
+        }
+        &::placeholder{
+            color: #737189;
+        }
+    }
+    textarea{
+        height: 15vw;
+    }
+    select{
+        option{
+            color: #737189;
+            background: #191826;
+        }
+    }
+    label{
+        align-self: flex-start;
+        transform: translateY(3vw);
+        color: #ffffff;
+    }
+    button{
+        width: 50vw;
+        padding: 0 0.5vw;
+        background: #ffff00;
+        color: #191826;
+        font-weight: 600;
+        font-size: 2vw;
+        border: none;
+        margin-top: 1vw;
+        &:active{
+            background: #cbcb00;
+        }
+    }
+    table{
+        border-collapse: collapse;
+        color: #ffffff;
+        width: 100%;
+        margin-top: 1vw;
+        thead{
+            font-weight: 600;
+            th{
+                background: #ffffff;
+                color: #191826;
+                text-align: center;
+            }
+        }
+        tr{
+            flex: 1;
+            td{
+                flex: 1;
+                overflow: hidden;
+                overflow-wrap: anywhere;
+                text-align: center;
+                padding: 0.5vw;
+                iconify-icon{
+                    cursor: pointer;
+                }
+                .red{
+                    color: #ff8484;
+                }
+                .green{
+                    color: #9fff87;
+                }
+                }
+        }
+        tr.hidden{
+            display: none;
+        }
+    }
+}
