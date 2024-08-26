@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Make Payment - {{ order_id }}</title>
+    <script src="https://code.iconify.design/iconify-icon/2.1.0/iconify-icon.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/iconify-icon@2.1.0/dist/iconify-icon.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../static/style/payment.css">
+    <script src="../static/js/payment.js" defer></script>
+</head>
+<body>
+    <div id="container-wrap">
+        <div id="container">
+            <div class="heading">Your Data</div>
+            <div id="data-readonly">
+                <label for="order-id">Order ID</label><div id="order-id">{{ order_id }}</div>
+                <label for="order-price">Order Price</label><div id="order-price">{{ order_price }}</div>
+                <label for="payment-process">Payment Process</label><div id="payment-process">{{ payment_process }}</div>
+                <label for="payment-status">Payment Status</label><div id="payment-status">{{ payment_status }}</div>
+            </div>
+            <div class="heading">You Have Opted For</div>
+            <div id="opted-payment">
+                <button id="paypal" onclick="payPaypal()">Pay Via Paypal <iconify-icon icon="icomoon-free:paypal"></iconify-icon></button>
+                <button id="payu" onclick="payPayu()">Pay Via PayU <iconify-icon icon="simple-icons:payoneer"></iconify-icon></button>
+            </div>
+            <div class="divider"><hr><span>or</span><hr></div>
+            <div class="heading">You Can Also Pay Through</div>
+            <div id="more-payment">
+                <button id="upi" onclick="payUpi()">Pay Via UPI <iconify-icon icon="bi:google"></iconify-icon></button>
+                <button id="crypto" onclick="payCrypto()">Pay Via Crypto <iconify-icon icon="fa6-brands:ethereum"></iconify-icon></button>
+            </div>
+            <div class="heading">Already Paid</div>
+            <div id="data-input">
+                <label for="confirm-process">Payment Process</label>
+                <select id="confirm-process" name="confirm-process">
+                    <option value="Paypal">Paypal</option>
+                    <option value="PayU">PayU</option>
+                    <option value="UPI">UPI</option>
+                    <option value="Crypto">Crypto</option>
+                </select>
+                <label for="confirm-data">Payment Data</label>
+                <input id="confirm-data" name="confirm-data" placeholder="Txn Hash, UPI ID, Txn No, etc">
+                <button id="confirm-btn" onclick="confirmPayment()">Confirm Payment</button>
+            </div>
+        </div>
+        <div id="payment-container">
+            <div id="pay-content">This QR code contains the details of the payment address. Scan the QR code and pay the shown amount in the shown currency to this particular address. If you are facing problem in paying through this method, choose a different one</div>
+            <div id="pay-price"></div>
+            <div id="pay-note">PLEASE NOTE THAT IF YOU TRANSFER ANY OTHER CURRENCY, DIFFERENT AMOUNT OR TO ANY OTHER PAYMENT ADDRESS, THE PAYMENT WILL BE DISMISSED. YOU HAVE TO PAY THE COMPLETE AMOUNT IN GIVEN CURRENCY TO THE GIVEN ADDRESS AGAIN. I WILL NOT BE RESPONSIBLE</div>
+            <img id="pay-qr" alt="QR code">
+            <div id="pay-btn">
+                <button onclick="closePayment()">Confirm Payment</button>
+                <button onclick="closePayment()">Cancel Payment</button>
+            </div>
+        </div>
+        <div id="load-container"><iconify-icon icon="eos-icons:bubble-loading"></iconify-icon></div>
+    </div>
+</body>
+</html>

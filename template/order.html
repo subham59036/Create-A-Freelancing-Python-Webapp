@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://code.iconify.design/iconify-icon/2.1.0/iconify-icon.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/iconify-icon@2.1.0/dist/iconify-icon.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../static/style/order.css">
+    <script src="../static/js/order.js" defer></script>
+    <title>Your Order - {{ order_id }}</title>
+</head>
+<body>
+    <div id="invoice-wrap">
+        <div id="invoice-top">
+            <div id="logo-wrap"><img src="../static/img/logo.jpg"></div>
+            <div id="invoice-title">ORDER INVOICE</div>
+            <div id="invoice">
+                <div class="bill"><span class="bill-label">Bill ID</span>{{ bill_id }}</div>
+                <div class="bill"><span class="bill-label">Date</span>{{ bill_date }}</div>
+            </div>
+        </div>
+        <table>
+            <tr class="table-head">
+                <th>Name</th>
+                <th>Description</th>
+                <th>Price</th>
+            </tr>
+            <tr>
+                <td class="label">Order Name</td>
+                <td class="name">{{ order_name }}</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td class="label">Order ID</td>
+                <td class="name">{{ order_id }}</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td class="label">Reciever Name</td>
+                <td class="name">{{ reciever_name }}</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td class="label">Reciever Email</td>
+                <td class="name">{{ reciever_email }}</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td class="label">Reciever Mobile</td>
+                <td class="name">{{ reciever_mobile }}</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td class="label">Reciever Address</td>
+                <td class="name">{{ reciever_address }}</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td class="label">Order Place Date</td>
+                <td class="name">{{ order_place }}</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td class="label">Order Delivery Date</td>
+                <td class="name">{{ order_delivery }}</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td class="label">Order Benefits</td>
+                <td class="name">
+                    <div class="name-list">
+                        {% for benefit in benefits %}
+                            <div class="benefit">{{ benefit }}</div>
+                        {% endfor %}
+                            </div>
+                </td>
+                <td></td>
+            </tr>
+            <tr>
+                <td class="label">Order Status</td>
+                <td class="name">{{ order_status }}</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td class="label">Payment Process</td>
+                <td class="name">{{ payment_process }}</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td class="label">Payment Status</td>
+                <td class="name">{{ payment_status }}</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td class="label">Grand Total</td>
+                <td></td>
+                <td>{{ order_price }}</td>
+            </tr>
+        </table>
+        <div id="freelance">
+            <div id="contact">
+                <div id="contact-me">Contact Me</div>
+                <div>Website: subham59036.pythonanywhere.com</div>
+                <div>Telegram: @subham59036</div>
+                <div>Email: subhamsaha59036@outlook.com</div>
+                <div>Whatsapp: +917605828197</div>
+            </div>
+            <div id="sign">
+                <div>Order Completed By</div>
+                <div id="sign-name">SUBHAM SAHA</div>
+                <div>Web Developer And Freelancer With<br>Mastery In Chatbot Development, WebApp<br> Development, API Development And Email Template Design</div>
+            </div>
+        </div>
+    </div>
+    <div id="container-wrap">
+        <div id="container">
+            <div id="order-status"><span id="order-status-name">Order Status</span>
+                {% if order_status in ["ACTIVE", "COMPLETED"] %}
+                    <span id="order-status-status" class="green">{{ order_status }}</span>
+                {% else %}
+                    <span id="order-status-status" class="red">{{ order_status }}</span>
+                {% endif %}
+            </div>
+            <div id="order-details-name">Order Details</div>
+            <div id="order-details">
+                <div id="order-reciever" class="detail">
+                    <div class="label">Reciever Name</div><div class="name">{{ reciever_name }}</div>
+                </div>
+                <div id="order-email" class="detail">
+                    <div class="label">Reciever Email</div><div class="name">{{ reciever_email }}</div>
+                </div>
+                <div id="order-mobile" class="detail">
+                    <div class="label">Reciever Mobile</div><div class="name">{{ reciever_mobile }}</div>
+                </div>
+                <div id="order-address" class="detail">
+                    <div class="label">Reciever Address</div><div class="name">{{ reciever_address }}</div>
+                </div>
+                <div id="order-name" class="detail">
+                    <div class="label">Order Name</div><div class="name">{{ order_name }}</div>
+                </div>
+                <div id="order-id" class="detail">
+                    <div class="label">Order ID</div><div class="name">{{ order_id }}</div>
+                </div>
+                <div id="order-date" class="detail">
+                    <div class="label">Order Place Date</div><div class="name">{{ order_place }}</div>
+                </div>
+                <div id="order-price" class="detail">
+                    <div class="label">Order Price</div><div class="name">{{ order_price }}</div>
+                </div>
+                <div id="order-delivery" class="detail">
+                    <div class="label">Order Delivery Date</div><div class="name">{{ order_delivery }}</div>
+                </div>
+                <div id="order-payment" class="detail">
+                    <div class="label">Payment Process</div><div class="name">{{ payment_process }}</div>
+                </div>
+                <div id="order-benefit" class="detail">
+                    <div class="label">Order Benefits</div>
+                    <div class="name-list">
+                        {% for benefit in benefits %}
+                            <div class="benefit">{{ benefit }}</div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+            <div id="payment-status"><div id="payment-status-name">Payment Status</div>
+            {% if payment_status == "PAID" %}
+                <div id="payment-status-status" class="green">{{ payment_status }}</div>
+            {% else %}
+                <div id="payment-status-status" class="red">{{ payment_status }}</div>
+            {% endif %}
+            </div>
+            {% if payment_status != "PAID" %}
+                <div id="make-payment">You Have Not Paid Yet. Make Payment <a href="https://subham59036.pythonanywhere.com/u/pay{{ order_id }}">Here</a></div>
+            {% endif %}
+            <div id="invoice"><button onclick="window.print()">Create Invoice</button></div>
+        </div>
+    </div>
+</body>
+</html>

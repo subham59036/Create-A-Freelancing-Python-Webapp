@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User Data Input</title>
+    <script src="https://code.iconify.design/iconify-icon/2.1.0/iconify-icon.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/iconify-icon@2.1.0/dist/iconify-icon.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./userdata.css">
+    <script src="./userdata.js" defer></script>
+</head>
+<body>
+    <div id="tab">
+        <div id="new-order-tab" class="tab now">New Order</div>
+        <div id="old-order-tab" class="tab">Update Order</div>
+        <div id="get-user-tab" class="tab">Get Users</div>
+        <div id="get-order-tab" class="tab">Get Orders</div>
+        <div id="get-confirm-tab" class="tab">Get Confirms</div>
+    </div>
+
+
+
+    <div id="new-order" class="container active">
+        <div class="heading">ADD NEW ORDER</div>
+        <label for="order-id">Order ID</label>
+        <input readonly id="order-id" class="auto-generated" name="order-id" placeholder="Auto Generated">
+        <label for="order-name">Order Name</label>
+        <input id="order-name" class="new" name="order-name" placeholder="Python App Development">
+        <label for="reciever-name">Reciever Name</label>
+        <input id="reciever-name" class="new" name="reciever-name" placeholder="John Doe">
+        <label for="order-status">Order Status</label>
+        <input id="order-status" class="new" name="order-status" placeholder="ACTIVE (in caps)">
+        <label for="order-price">Order Price</label>
+        <input id="order-price" class="new" name="order-price" placeholder="USD 50" value="USD ">
+        <label for="order-benefit">Order Benefit</label>
+        <textarea id="order-benefit" class="new" name="order-benefit" placeholder="Each Benefit In A New Line. Example:
+MySQL Database Integration
+Explantion With Code Comments
+Automated Schedules Tasks"></textarea>
+        <label for="order-place">Order Place</label>
+        <input id="order-place" class="new" name="order-place" placeholder="12.09.2020">
+        <label for="order-delivery">Order Delivery</label>
+        <input id="order-delivery" class="new" name="order-delivery" placeholder="30.08.2020">
+        <label for="reciever-email">Reciever Email</label>
+        <input id="reciever-email" class="new" name="reciever-email" placeholder="johndoe@gmail.com">
+        <label for="reciever-email">Reciever Address</label>
+        <input id="reciever-address" class="new" name="reciever-address" placeholder="Zane Street, Sector V, Zondro, Washington DC">
+        <label for="reciever-mobile">Reciever Mobile</label>
+        <input id="reciever-mobile" class="new" name="reciever-mobile" placeholder="+917652383991">
+        <label for="payment-process">Payment Process</label>
+        <input id="payment-process" class="new" name="payment-process" placeholder="Paypal">
+        <label for="payment-status">Payment Status</label>
+        <input id="payment-status" class="new" name="payment-status" placeholder="PAID (in caps)">
+        <label for="password">Password</label>
+        <input id="password" class="new" name="password" placeholder="Password">
+        <button onclick="sendNewUserData()">Submit</button>
+    </div>
+
+
+
+    <div id="get-confirm" class="container">
+        <div class="heading">GET ALL CONFIRMED PAYMENT</div>
+        <label for="password">Password</label>
+        <input id="password" class="confirm" name="password" placeholder="Password">
+        <button onclick="getConfirmData()">Submit</button>
+        <label for="confirm-search">Search</label>
+        <input id="confirm-search" placeholder="Search">
+        <table id="confirm-table" border="1">
+            <thead>
+                <tr>
+                    <th>Order ID</th>
+                    <th>Reciever Name</th>
+                    <th>Confirm Process</th>
+                    <th>Confirm Data</th>
+                    <th><iconify-icon icon="uiw:setting"></iconify-icon></th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+
+
+    <div id="get-user" class="container">
+        <div class="heading">GET ALL USER DATA</div>
+        <label for="password">Password</label>
+        <input id="password" class="user" name="password" placeholder="Password">
+        <button onclick="getUserData()">Submit</button>
+        <label for="user-search">Search</label>
+        <input id="user-search" placeholder="Search">
+        <table id="user-table" border="1">
+            <thead>
+                <tr>
+                    <th>Reciever Name</th>
+                    <th>Reciever Mobile</th>
+                    <th>Reciever Email</th>
+                    <th>Reciever Address</th>
+                    <th><iconify-icon icon="uiw:setting"></iconify-icon></th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+
+
+
+    <div id="old-order" class="container">
+        <div class="heading">UPDATE EXISTING ORDER</div>
+        <label for="order-id">Order ID</label>
+        <input id="order-id" class="old" name="order-id" placeholder="Order ID">
+        <label for="changed-parameter">Change Parameter</label>
+        <select class="old" name="changed-parameter" id="changed-parameter">
+            <option value="order-delivery">Order Delivery</option>
+            <option value="payment-process">Payment Process</option>
+            <option value="order-status">Order Status</option>
+            <option value="order-price">Order Price</option>
+            <option value="order-benefit">Order Benefit</option>
+            <option value="reciever-mobile">Reciever Mobile</option>
+            <option value="reciever-email">Reciever Email</option>
+            <option value="payment-status">Payment Status</option>
+        </select>
+        <label for="changed-data">New Data</label>
+        <input class="old" name="changed-data" id="changed-data" placeholder="New Data">
+        <label for="password">Password</label>
+        <input id="password" class="old" name="password" placeholder="Password">
+        <button onclick="sendOldUserData()">Submit</button>
+    </div>
+
+
+
+    <div id="get-order" class="container">
+        <div class="heading">GET ALL ORDER DATA</div>
+        <label for="password">Password</label>
+        <input id="password" class="order" name="password" placeholder="Password">
+        <button onclick="getOrderData()">Submit</button>
+        <label for="order-search">Search</label>
+        <input id="order-search" placeholder="Search">
+        <table id="order-table" border="1">
+            <thead>
+                <tr>
+                    <th>Order ID</th>
+                    <th>Order Name</th>
+                    <th>Order Price</th>
+                    <th>Reciever Name</th>
+                    <th>Order Benefit</th>
+                    <th>Order Place</th>
+                    <th>Order Delivery</th>
+                    <th>Payment Process</th>
+                    <th>Order Status</th>
+                    <th>Payment Status</th>
+                    <th><iconify-icon icon="uiw:setting"></iconify-icon></th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
