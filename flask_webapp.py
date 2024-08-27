@@ -10,10 +10,10 @@ const_password = 'password'
 my_tz = 'Asia/Kolkata'
 
 con = mysql.connector.connect(
-  host="subham59036.mysql.pythonanywhere-services.com",
-  user="subham59036",
+  host="mysqlserver",
+  user="yourname",
   password="password",
-  database="subham59036$freelance"
+  database="dbname"
 )
 cur = con.cursor()
 cur.execute("CREATE TABLE IF NOT EXISTS orders (order_id TEXT, order_name TEXT, reciever_name TEXT, order_place TEXT, order_delivery TEXT, order_price TEXT, payment_status TEXT, payment_process TEXT, order_status TEXT, order_benefit TEXT)")
